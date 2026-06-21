@@ -1,0 +1,30 @@
+# Mac System Files
+.DS_Store
+
+# IDE and Editor Configs
+.vscode/
+.idea/
+
+# Backend (Java / Spring Boot) dependencies & builds
+target/
+*.class
+*.jar
+*.war
+
+# Frontend (React / Node) dependencies & builds
+node_modules/
+dist/
+build/
+.pnpm-store/
+
+# Python Security Tools environment and caches
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Security Safeguard: Never upload local secret files
+.env
+*.local
+certs/

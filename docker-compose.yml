@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: srs-postgres
+    environment:
+      POSTGRES_USER: srs_user
+      POSTGRES_PASSWORD: srs_password
+      POSTGRES_DB: srs_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin-ui:
+    image: dpage/pgadmin4
+    container_name: srs-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@test.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres-db
+
+volumes:
+  postgres_data:
